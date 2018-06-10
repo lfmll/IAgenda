@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {AngularFireAuth} from 'angularfire2/auth';
+import {Authentication} from '../../services/authentication';
 
 
 /**
@@ -23,7 +23,7 @@ export class SignUpPage {
 
   constructor(public navCtrl: NavController, 
   			public navParams: NavParams,
-  			private angularFire: AngularFireAuth) {
+  			private auth: Authentication) {
   }
 
   ionViewDidLoad() {
@@ -32,6 +32,6 @@ export class SignUpPage {
 
   //Crear Cuenta
   createAccount(){
-  	this.angularFire.auth.createUserWithEmailAndPassword(this.email,this.password);
+  	this.auth.createUserWithEmailAndPassword(this.email,this.password);
   }
 }
