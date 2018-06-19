@@ -6,6 +6,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SignUpPage } from '../pages/sign-up/sign-up';
+import {LoginPage} from '../pages/login/login';
+import {CalendarPage} from '../pages/calendar/calendar';
+import {Calendar} from '@ionic-native/calendar';
+
 
 //Servicios
 import {Authentication} from '../services/authentication';
@@ -16,6 +20,9 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/firebase-config';
 
+import {NgCalendarModule} from 'ionic2-calendar';
+
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -24,7 +31,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    SignUpPage
+    SignUpPage,
+    LoginPage,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
@@ -32,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    NgCalendarModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,11 +49,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     SignUpPage,
+    LoginPage,
+    CalendarPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Authentication,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

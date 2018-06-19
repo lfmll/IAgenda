@@ -8,4 +8,6 @@ import {firebaseConfig} from '../environments/firebase-config';
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().getRedirectResult().then(result=>console.log(result));
+
 platformBrowserDynamic().bootstrapModule(AppModule);

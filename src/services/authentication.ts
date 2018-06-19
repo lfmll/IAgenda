@@ -35,6 +35,16 @@ export class Authentication {
 		})
 	}
 	createUserWithEmailAndPassword(email,password){
-		this.angularAuth.auth.createUserWithEmailAndPassword(email,password);
+		return this.angularAuth.auth.createUserWithEmailAndPassword(email,password);
+	}
+	createUserWithGoogle(){
+		let provider=new firebase.auth.GoogleAuthProvider();
+		return this.angularAuth.auth.signInWithRedirect(provider)
+		.then(result=>{
+			return firebase.auth().getRedirectResult;
+		});
+	}
+	signInWithEmailAndPassword(email,password){
+		this.angularAuth.auth.signInWithEmailAndPassword(email,password);
 	}
 }
